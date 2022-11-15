@@ -1,4 +1,4 @@
-\documentclass[12pt, letterpaper, notitlepage]{article} 
+\documentclass[10pt, letterpaper, notitlepage]{article} 
 \usepackage[
     top=1in,
     left=1in,
@@ -16,15 +16,26 @@
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 
-\title{MEEN 621 Summary}
+\DeclareMathVersion{sans}
+\SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
+\SetSymbolFont{letters}{sans}{OML}{cmbrm}{m}{it}
+\SetSymbolFont{symbols}{sans}{OMS}{cmbrs}{m}{n}
+\SetMathAlphabet{\mathit}{sans}{OT1}{cmbr}{m}{sl}
+\SetMathAlphabet{\mathbf}{sans}{OT1}{cmbr}{bx}{n}
+\SetMathAlphabet{\mathtt}{sans}{OT1}{cmtl}{m}{n}
+\SetSymbolFont{largesymbols}{sans}{OMX}{iwona}{m}{n}
+
+\title{MEEN 621 Notes}
 \author{Shivanand P}
 
 \titleformat{\section}[block]{\bfseries \sffamily \large}{\thesection.}{5pt}{}
 \titleformat{\subsection}[block]{\bfseries \sffamily \normalsize}{\thesubsection.}{5pt}{}
+\titleformat{\subsubsection}[block]{\bfseries \sffamily \small}{}{0pt}{}
 
 \begin{document}
 
 \sffamily
+\sffamily\mathversion{sans}
 
 \maketitle
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
@@ -37,7 +48,7 @@
 
 \pagestyle{fancy}
 \fancyhead{}    
-\fancyhead[R]{\normalfont\sffamily Shivanand P \\ MEEN 621 Summary}
+\fancyhead[R]{\normalfont\sffamily Shivanand P \\ MEEN 621 Notes}
 \fancyfoot{}
 \fancyfoot[R]{\normalfont\sffamily Page \textbf{\thepage} of \textbf{\pageref{LastPage}}}
 \renewcommand{\headrulewidth}{0pt}
@@ -46,26 +57,33 @@
 
 \section{Potential Flow}
 \begin{align*}
+i &= \sqrt{-1} \\
+z &= x + i y = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta}) \\
+\bar{z} &= x - i y = r e^{-i \theta} = r (\cos{\theta} - i \sin{\theta}) \\
+x &= r \cos{\theta} \\
+y &= r \sin{\theta} \\
+r &= \sqrt{x^2 + y^2} = |z| = |z \bar{z}|^{\frac{1}{2}} \\
+\theta &= arctan{\frac{y}{x}} \\
 \text{Complex Potential\ } F(z) &= \phi(z) + i \psi(z) \\
-\text{Complex Velocity\ } w(z) &= u - i v = \frac{dF}{dz} 
+\text{Complex Velocity\ } w(z) &= u - i v = (v_r - i v_{\theta}) e^{-i \theta} = \frac{dF(z)}{dz} \\
+\bar{w}(z) &= u + i v = (v_r + i v_{\theta}) e^{i \theta} \\
 \end{align*}
-
 
 \subsection{Cartesian $\Leftrightarrow$ Polar Velocities}
 \begin{align*}
 u &= v_r \cos{\theta} - v_{\theta} \sin{\theta} \\
 v &= v_r \sin{\theta} + v_{\theta} \cos{\theta} \\ \\
 v_r &= u \cos{\theta} + v \sin{\theta} \\
-v_{\theta} &= -u \sin{\theta} + v \cos{\theta}
+v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 \end{align*}
-
-
 
 \subsection{Stream Function $\Leftrightarrow$ Potential Function $\Leftrightarrow$ Velocities}
 Also called Cauchy Reimann Equations
 \begin{align*}
 u &= \frac{\partial \phi}{\partial x} = \frac{\partial \psi}{\partial y} \\
-v &= \frac{\partial \phi}{\partial y} = -\frac{\partial \psi}{\partial x}
+v &= \frac{\partial \phi}{\partial y} = -\frac{\partial \psi}{\partial x} \\ \\
+v_r &= \frac{\partial \phi}{\partial r} = \frac{1}{r} \frac{\partial \psi}{\partial \theta} \\
+v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partial \psi}{\partial r} \\
 \end{align*}
 
 \subsection{Complex Potentials in Cartesian Coordinates}
@@ -79,10 +97,12 @@ Corner & & & & \\
 \hline
 Source & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ \\  
 \hline  
+Free Vortex & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ \\  
+\hline
 \end{tabular}
 
 \subsection{Complex Potentials in Polar Coordinates}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|p{0.5in}|p{1.6in}|p{0.8in}|p{1.2in}|p{1.25in}|}
 \hline
   & $\phi$ & $\psi$ & $v_r$ & $v_{\theta}$ \\
 \hline  
@@ -92,6 +112,25 @@ Corner & $C r^n \cos{n \theta}$ & $C r^n \sin{n \theta}$ & $n C r^{n-1} \cos[(n-
 \hline
 Source & $\frac{m}{2 \pi} \ln{r}$ & $\frac{m}{2 \pi} \theta$ & $\frac{m}{2 \pi r}$ & $0$ \\  
 \hline  
+Free Vortex & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ \\  
+\hline
 \end{tabular}
+\subsubsection{Legend}
+\begin{itemize}
+  \item Uniform
+  \begin{itemize}
+    \item $U$: Uniform velocity magnitude
+    \item $\alpha$: Angle of attack - the angle at which the direction of the uniform velocity is oriented with respect to the horizontal
+  \end{itemize}
+  \item Corner
+  \begin{itemize}
+    \item $C$: Indicates the direction. $C > 0$ always
+    \item $n$: $\dfrac{\pi}{\text{angle of the corner}}$
+  \end{itemize} 
+  \item Source/Sink
+  \begin{itemize}
+    \item $m$: Volume flow rate per unit dimension normal to the page. For source, $m > 0$, whereas for sink, $m < 0$
+  \end{itemize}     
+\end{itemize}
 
 \end{document}
