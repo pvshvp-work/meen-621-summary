@@ -65,18 +65,12 @@ x &= r \cos{\theta} \\
 y &= r \sin{\theta} \\
 r &= \sqrt{x^2 + y^2} = |z| = |z \bar{z}|^{\frac{1}{2}} \\
 \theta &= arctan{\frac{y}{x}} \\
+\text{2D Incompressible Potential Flow } \nabla^2 \phi &= 0 = \nabla^2 \psi \\
 \text{Complex Potential\ } F(z) &= \phi(z) + i \psi(z) \\
 \text{Complex Velocity\ } w(z) &= u - i v = (v_r - i v_{\theta}) e^{-i \theta} = \frac{dF(z)}{dz} \\
 \bar{w}(z) &= u + i v = (v_r + i v_{\theta}) e^{i \theta} \\
 \end{align*}
 
-\subsection{Cartesian $\Leftrightarrow$ Polar Velocities}
-\begin{align*}
-u &= v_r \cos{\theta} - v_{\theta} \sin{\theta} \\
-v &= v_r \sin{\theta} + v_{\theta} \cos{\theta} \\ \\
-v_r &= u \cos{\theta} + v \sin{\theta} \\
-v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
-\end{align*}
 
 \subsection{Stream Function $\Leftrightarrow$ Potential Function $\Leftrightarrow$ Velocities}
 Also called Cauchy Reimann Equations
@@ -85,6 +79,14 @@ u &= \frac{\partial \phi}{\partial x} = \frac{\partial \psi}{\partial y} \\
 v &= \frac{\partial \phi}{\partial y} = -\frac{\partial \psi}{\partial x} \\ \\
 v_r &= \frac{\partial \phi}{\partial r} = \frac{1}{r} \frac{\partial \psi}{\partial \theta} \\
 v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partial \psi}{\partial r} \\
+\end{align*}
+
+\subsection{Cartesian $\Leftrightarrow$ Polar Velocities}
+\begin{align*}
+u &= v_r \cos{\theta} - v_{\theta} \sin{\theta} \\
+v &= v_r \sin{\theta} + v_{\theta} \cos{\theta} \\ \\
+v_r &= u \cos{\theta} + v \sin{\theta} \\
+v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 \end{align*}
 
 \subsection{Complex Potentials}
