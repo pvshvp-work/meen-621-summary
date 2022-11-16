@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper, notitlepage]{article} 
+\documentclass[11pt, letterpaper, notitlepage, landscape]{article} 
 \usepackage[
     top=1in,
     left=1in,
@@ -15,6 +15,7 @@
 \usepackage{tocloft}
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
+\usepackage{multirow}
 
 \DeclareMathVersion{sans}
 \SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
@@ -86,35 +87,94 @@ v_r &= \frac{\partial \phi}{\partial r} = \frac{1}{r} \frac{\partial \psi}{\part
 v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partial \psi}{\partial r} \\
 \end{align*}
 
-\subsection{Complex Potentials in Cartesian Coordinates}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-  & $\phi$ & $\psi$ & $u$ & $v$ \\
-\hline  
-Uniform & $U(x \cos{\alpha}+y \sin{\alpha})$ & $U(y \cos{\alpha}-x \sin{\alpha})$ & $U \cos{\alpha}$ & $U \sin{\alpha}$ \\  
-\hline
-Corner & & & & \\
-\hline
-Source & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ \\  
-\hline  
-Free Vortex & $\frac{\Gamma}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ & $-\frac{\Gamma}{2 \pi} \ln{r}$ & $0$ & $\frac{\Gamma}{2 \pi r}$ \\  
+\subsection{Complex Potentials}
+
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline & F(z) & $\phi$ & $\psi$ & w(z) & $u$ and $v_r$ & $v$ and $v_{\theta}$ \\
+
+\hline \multirow{2}{*}{Uniform}
+  & \multirow{2}{*}{$U e^{-i \alpha} z$} % F(z)
+    & $U(x \cos{\alpha}+y \sin{\alpha})$ % phi(x,y)
+    & $U(y \cos{\alpha}-x \sin{\alpha})$ % psi(x,y)
+  & \multirow{2}{*}{$U e^{-i \alpha}$} % w(z)
+    & $U \cos{\alpha}$ % u(x,y)
+    & $U \sin{\alpha}$ % v(x,y)
+  \\ \cline{3-4} \cline{6-7} 
+  & 
+    & $U r \cos(\theta - \alpha)$ % phi(r,theta)
+    & $U r \sin(\theta - \alpha)$ % psi(r,theta)
+  & 
+    & $U \cos(\theta - \alpha)$ % v_r(r,theta)
+    & $-U \sin(\theta - \alpha)$ % v_theta(r,theta)
+\\
+
+\hline \multirow{2}{*}{Corner}
+  & \multirow{2}{*}{$C z^n$} % F(z)
+    & % phi(x,y)
+    & % psi(x,y)
+  & \multirow{2}{*}{$n C z^{n-1}$} % w(z)
+    & % u(x,y)
+    & % v(x,y)
+  \\ \cline{3-4} \cline{6-7} 
+  & 
+    & $C r^n \cos{n \theta}$ % phi(r,theta)
+    & $C r^n \sin{n \theta}$ % psi(r,theta)
+  & 
+    & $n C r^{n-1} \cos[(n-1) \theta]$ % v_r(r,theta)
+    & $- n C r^{n-1} \sin[(n-1) \theta]$ % v_theta(r,theta)
+\\
+
+\hline \multirow{2}{*}{Source/Sink}
+  & \multirow{2}{*}{$\frac{m}{2 \pi} \ln(z - z_0)$} % F(z)
+    & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ % phi(x,y)
+    & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % psi(x,y)
+  & \multirow{2}{*}{$\frac{m}{2 \pi (z - z_0)}$} % w(z)
+    & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ % u(x,y)
+    & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ % v(x,y)
+  \\ \cline{3-4} \cline{6-7} 
+  & 
+    & $\frac{m}{2 \pi} \ln{r}$ % phi(r,theta)
+    & $\frac{m}{2 \pi} \theta$ % psi(r,theta)
+  & 
+    & $\frac{m}{2 \pi r}$ % v_r(r,theta)
+    & $0$ % v_theta(r,theta)
+\\
+
+\hline \multirow{2}{*}{Free Vortex} % Type
+  & \multirow{2}{*}{$$} % F(z)
+    & $\frac{\Gamma}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % phi(x,y)
+    & $-\frac{\Gamma}{2 \pi} \ln{r}$ % psi(x,y)
+  & \multirow{2}{*}{$$} % w(z)
+    & $-\frac{\Gamma}{2 \pi} \frac{y}{x^2 + y^2}$ % u(x,y)
+    & $\frac{\Gamma}{2 \pi} \frac{x}{x^2 + y^2}$ % v(x,y)
+  \\ \cline{3-4} \cline{6-7} 
+  & 
+    & $\frac{\Gamma}{2 \pi} \theta$ % phi(r,theta)
+    & $-\frac{\Gamma}{2 \pi} \ln{r}$ % psi(r,theta)
+  & 
+    & $0$ % v_r(r,theta)
+    & $\frac{\Gamma}{2 \pi r}$ % v_theta(r,theta)
+\\
+
+% \hline \multirow{2}{*}{} % Type
+%   & \multirow{2}{*}{$$} % F(z)
+%     & $$ % phi(x,y)
+%     & $$ % psi(x,y)
+%   & \multirow{2}{*}{$$} % w(z)
+%     & $$ % u(x,y)
+%     & $$ % v(x,y)
+%   \\ \cline{3-4} \cline{6-7} 
+%   & 
+%     & $$ % phi(r,theta)
+%     & $$ % psi(r,theta)
+%   & 
+%     & $$ % v_r(r,theta)
+%     & $$ % v_theta(r,theta)
+% \\
+
 \hline
 \end{tabular}
 
-\subsection{Complex Potentials in Polar Coordinates}
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-  & $\phi$ & $\psi$ & $v_r$ & $v_{\theta}$ \\
-\hline  
-Uniform & $U r \cos(\theta - \alpha)$ & $U r \sin(\theta - \alpha)$ & $U \cos(\theta - \alpha)$ & $-U \sin(\theta - \alpha)$ \\  
-\hline
-Corner & $C r^n \cos{n \theta}$ & $C r^n \sin{n \theta}$ & $n C r^{n-1} \cos[(n-1) \theta]$ & $- n C r^{n-1} \sin[(n-1) \theta]$ \\
-\hline
-Source & $\frac{m}{2 \pi} \ln{r}$ & $\frac{m}{2 \pi} \theta$ & $\frac{m}{2 \pi r}$ & $0$ \\  
-\hline  
-Free Vortex & $\frac{\Gamma}{2 \pi} \theta$ & $-\frac{\Gamma}{2 \pi} \ln{r}$ & $0$ & $\frac{\Gamma}{2 \pi r}$ \\  
-\hline
-\end{tabular}
 \subsubsection{Legend}
 \begin{itemize}
   \item Uniform
