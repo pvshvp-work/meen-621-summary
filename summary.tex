@@ -129,8 +129,8 @@ v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partia
     & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ % phi(x,y)
     & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % psi(x,y)
   & \multirow{2}{*}{$\frac{m}{2 \pi (z - z_0)}$} % w(z)
-    & $\frac{m}{2 \pi} (\frac{x}{x^2+y^2})$ % u(x,y)
-    & $\frac{m}{2 \pi} (\frac{y}{x^2+y^2})$ % v(x,y)
+    & $\frac{m}{2 \pi} \frac{x - x_0}{(x-x_0)^2+(y-y_0)^2}$ % u(x,y)
+    & $\frac{m}{2 \pi} \frac{y - y_0}{(x-x_0)^2+(y-y_0)^2}$ % v(x,y)
   \\ \cline{3-4} \cline{6-7} 
   & 
     & $\frac{m}{2 \pi} \ln{r}$ % phi(r,theta)
@@ -143,10 +143,10 @@ v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partia
 \hline \multirow{2}{*}{Free Vortex} % Type
   & \multirow{2}{*}{$-\frac{i \Gamma}{2 \pi} \ln(z - z_0)$} % F(z)
     & $\frac{\Gamma}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % phi(x,y)
-    & $-\frac{\Gamma}{2 \pi} \ln{r}$ % psi(x,y)
+    & $-\frac{\Gamma}{2 \pi} \ln{\sqrt{(x-x_0)^2 + (y-y_0)^2}}$ % psi(x,y)
   & \multirow{2}{*}{$-\frac{i \Gamma}{2 \pi (z-z_0)}$} % w(z)
-    & $-\frac{\Gamma}{2 \pi} \frac{y}{x^2 + y^2}$ % u(x,y)
-    & $\frac{\Gamma}{2 \pi} \frac{x}{x^2 + y^2}$ % v(x,y)
+    & $-\frac{\Gamma}{2 \pi} \frac{y-y_0}{(x-x_0)^2 + (y-y_0)^2}$ % u(x,y)
+    & $\frac{\Gamma}{2 \pi} \frac{x-x_0}{(x-x_0)^2 + (y-y_0)^2}$ % v(x,y)
   \\ \cline{3-4} \cline{6-7} 
   & 
     & $\frac{\Gamma}{2 \pi} \theta$ % phi(r,theta)
@@ -154,6 +154,22 @@ v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partia
   & 
     & $0$ % v_r(r,theta)
     & $\frac{\Gamma}{2 \pi r}$ % v_theta(r,theta)
+\\
+
+\hline \multirow{2}{*}{Dipole} % Type
+  & \multirow{2}{*}{$\dfrac{\mu}{\pi z}$} % F(z)
+    & $\frac{\mu}{\pi} \frac{x}{x^2+y^2}$ % phi(x,y)
+    & $-\frac{\mu}{\pi} \frac{y}{x^2+y^2}$ % psi(x,y)
+  & \multirow{2}{*}{$-\dfrac{\mu}{\pi z^2}$} % w(z)
+    & $\frac{\mu}{\pi} \frac{y^2-x^2}{(x^2+y^2)^2}$ % u(x,y)
+    & $-\frac{\mu}{\pi} \frac{2xy}{(x^2+y^2)^2}$ % v(x,y)
+  \\ \cline{3-4} \cline{6-7} 
+  & 
+    & $\frac{\mu}{\pi r} \cos{\theta}$ % phi(r,theta)
+    & $-\frac{\mu}{\pi r} \sin{\theta}$ % psi(r,theta)
+  & 
+    & $-\frac{\mu}{\pi r^2} \cos{\theta}$ % v_r(r,theta)
+    & $-\frac{\mu}{\pi r^2} \sin{\theta}$ % v_theta(r,theta)
 \\
 
 % \hline \multirow{2}{*}{} % Type
@@ -190,7 +206,13 @@ v_{\theta} &= \frac{1}{r} \frac{\partial \phi}{\partial \theta} = -\frac{\partia
   \item Source/Sink
   \begin{itemize}
     \item $m$: Volume flow rate per unit dimension normal to the page. For source, $m > 0$, whereas for sink, $m < 0$
-  \end{itemize}     
+  \end{itemize}
+  \item Dipole/Doublet
+  \begin{itemize}
+    \item $a$: Half distance between the source and sink
+    \item $Q$: Volume flow rate per unit dimension normal to the page
+    \item $\mu$: $Q a$
+  \end{itemize}        
 \end{itemize}
 
 \end{document}
