@@ -1,4 +1,4 @@
-\documentclass[10pt, letterpaper, notitlepage, landscape]{article} 
+\documentclass[11pt, letterpaper, notitlepage, landscape]{article} 
 \usepackage[
     top=1in,
     left=0.75in,
@@ -240,11 +240,11 @@ v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 
 \hline \multirow{2}{*}{Source/Sink}
   & \multirow{2}{*}{$\frac{m}{2 \pi} \ln(z - z_0)$} % F(z)
-    & $\frac{m}{4 \pi} \ln[{(x-x_0)^2+(y-y_0)^2}]$ % phi(x,y)
-    & $\frac{m}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % psi(x,y)
+    & $\frac{m}{4 \pi} \ln[{x^2+y^2}]$ % phi(x,y)
+    & $\frac{m}{2 \pi} \arctan{\frac{y}{x}}$ % psi(x,y)
   & \multirow{2}{*}{$\frac{m}{2 \pi (z - z_0)}$} % w(z)
-    & $\frac{m}{2 \pi} \frac{x - x_0}{(x-x_0)^2+(y-y_0)^2}$ % u(x,y)
-    & $\frac{m}{2 \pi} \frac{y - y_0}{(x-x_0)^2+(y-y_0)^2}$ % v(x,y)
+    & $\frac{m}{2 \pi} \frac{x}{x^2+y^2}$ % u(x,y)
+    & $\frac{m}{2 \pi} \frac{y}{x^2+y^2}$ % v(x,y)
   \\ \cline{3-4} \cline{6-7} 
   & 
     & $\frac{m}{2 \pi} \ln{r}$ % phi(r,theta)
@@ -256,11 +256,11 @@ v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 
 \hline \multirow{2}{*}{Free Vortex} % Type
   & \multirow{2}{*}{$-\frac{i \Gamma}{2 \pi} \ln(z - z_0)$} % F(z)
-    & $\frac{\Gamma}{2 \pi} \arctan{\frac{y-y_0}{x-x_0}}$ % phi(x,y)
-    & $-\frac{\Gamma}{2 \pi} \ln{\sqrt{(x-x_0)^2 + (y-y_0)^2}}$ % psi(x,y)
+    & $\frac{\Gamma}{2 \pi} \arctan{\frac{y}{x}}$ % phi(x,y)
+    & $-\frac{\Gamma}{4 \pi} \ln[x^2 + y^2]$ % psi(x,y)
   & \multirow{2}{*}{$-\frac{i \Gamma}{2 \pi (z-z_0)}$} % w(z)
-    & $-\frac{\Gamma}{2 \pi} \frac{y-y_0}{(x-x_0)^2 + (y-y_0)^2}$ % u(x,y)
-    & $\frac{\Gamma}{2 \pi} \frac{x-x_0}{(x-x_0)^2 + (y-y_0)^2}$ % v(x,y)
+    & $-\frac{\Gamma}{2 \pi} \frac{y}{x^2 + y^2}$ % u(x,y)
+    & $\frac{\Gamma}{2 \pi} \frac{x}{x^2 + y^2}$ % v(x,y)
   \\ \cline{3-4} \cline{6-7} 
   & 
     & $\frac{\Gamma}{2 \pi} \theta$ % phi(r,theta)
