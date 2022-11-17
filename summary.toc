@@ -4,3 +4,4 @@
 \contentsline {subsection}{\numberline {1.3}Complex Potentials}{2}{}%
 \contentsline {subsubsection}{\numberline {1.3.1}Legend}{2}{}%
 \contentsline {subsection}{\numberline {1.4}Infinite Series Expansions}{3}{}%
+\contentsline {subsection}{\numberline {1.5}Bernoulli's Equation (Irrotational)}{3}{}%
