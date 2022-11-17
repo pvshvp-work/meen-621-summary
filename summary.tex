@@ -56,11 +56,37 @@
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\arraystretch}{1.75}
 
+\section{Mathematics}
+
+\section{Continuum Flow}
+\subsection{Mass Conservation}
+\begin{align*}
+\frac{\partial \rho}{\partial t} + \vec{\nabla} . (\rho v_j) &= 0 \\
+\frac{\partial \rho}{\partial t} + \frac{\partial (\rho v_j)}{\partial x_j} &= 0 \\
+\end{align*}
+
+\subsection{Momentum Conservation}
+$\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{v}\biggr] = \rho \vec{f} -\vec{\nabla} p + \mu \nabla^2 \vec{v}$
+
+\subsubsection{Cartesian Coordinates}
+\begin{align*}
+\rho \biggl[ \frac{\partial v_1}{\partial t} + v_1 \frac{\partial v_1}{\partial x_1} + v_2 \frac{\partial v_1}{\partial x_2} + v_3 \frac{\partial v_1}{\partial x_3} \biggr] &= \rho f_1 - \frac{\partial p}{\partial x_1} + \mu \biggl[ \frac{\partial^2 v_1}{\partial x^2_1} + \frac{\partial^2 v_1}{\partial x^2_2} + \frac{\partial^2 v_1}{\partial x^2_3} \biggr] \\
+\rho \biggl[ \frac{\partial v_2}{\partial t} + v_1 \frac{\partial v_2}{\partial x_1} + v_2 \frac{\partial v_2}{\partial x_2} + v_3 \frac{\partial v_2}{\partial x_3} \biggr] &= \rho f_2 - \frac{\partial p}{\partial x_2} + \mu \biggl[ \frac{\partial^2 v_2}{\partial x^2_1} + \frac{\partial^2 v_2}{\partial x^2_2} + \frac{\partial^2 v_2}{\partial x^2_3} \biggr] \\
+\rho \biggl[ \frac{\partial v_3}{\partial t} + v_1 \frac{\partial v_3}{\partial x_1} + v_2 \frac{\partial v_3}{\partial x_2} + v_3 \frac{\partial v_3}{\partial x_3} \biggr] &= \rho f_3 - \frac{\partial p}{\partial x_3} + \mu \biggl[ \frac{\partial^2 v_3}{\partial x^2_1} + \frac{\partial^2 v_3}{\partial x^2_2} + \frac{\partial^2 v_3}{\partial x^2_3} \biggr] \\
+\end{align*}
+  
+
 \section{Vorticity Dynamics}
 \begin{align*}
 \text{Circulation } \Gamma &= \oint_{C}^{} \vec{v} . \vec{dl} = \int_{S}^{} \vec{\omega}.\hat{n}\ dA \text{ (Flux of Vorticity across surface } S \text{)}\\ 
 \text{Average angular velocity } \bar{\Omega} &= \frac{\bar{u}_{\theta}}{a} = \frac{\oint_{C}^{} \vec{v}.\vec{dl}}{2 \pi a^2} =  \frac{\Gamma}{2 \pi a^2} \text{ (On a circle of radius } a\text{)} = \frac{{\omega}_j n_j}{2}\\
-\text{For Irrotational Flow, } \Gamma &= 0,\ \vec{\omega} = 0
+\text{For Irrotational Flow, } \Gamma &= 0,\ \vec{\omega} = 0 \\
+\end{align*}
+
+\subsection{Streamlines and Vortex Lines}
+\begin{align*}
+\text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{u_x} &= \frac{dy}{u_y} = \frac{dz}{u_z} \\
+\text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
 \end{align*}
 
 \section{Potential Flow}
