@@ -4,5 +4,6 @@
 *.fls
 *.log
 *.blg
-# *.pdf
+*.toc
 *.synctex.gz
+# *.pdf
