@@ -1,16 +1,26 @@
 \contentsline {section}{\numberline {1}Mathematics}{1}{}%
+\contentsline {subsection}{\numberline {1.1}First-Order Linear ODE}{1}{}%
 \contentsline {section}{\numberline {2}Continuum Flow}{1}{}%
 \contentsline {subsection}{\numberline {2.1}Mass Conservation}{1}{}%
 \contentsline {subsection}{\numberline {2.2}Momentum Conservation}{1}{}%
 \contentsline {subsubsection}{\numberline {2.2.1}Cartesian Coordinates}{1}{}%
-\contentsline {section}{\numberline {3}Vorticity Dynamics}{1}{}%
-\contentsline {subsection}{\numberline {3.1}Streamlines and Vortex Lines}{2}{}%
-\contentsline {section}{\numberline {4}Potential Flow}{2}{}%
-\contentsline {subsection}{\numberline {4.1}Stream Function $\Leftrightarrow $ Potential Function $\Leftrightarrow $ Velocities}{3}{}%
-\contentsline {subsection}{\numberline {4.2}Cartesian $\Leftrightarrow $ Polar Velocities}{3}{}%
-\contentsline {subsection}{\numberline {4.3}Complex Potentials}{4}{}%
-\contentsline {subsubsection}{\numberline {4.3.1}Legend}{4}{}%
-\contentsline {subsection}{\numberline {4.4}Infinite Series Expansions}{5}{}%
-\contentsline {subsection}{\numberline {4.5}Bernoulli's Equation (Irrotational)}{5}{}%
-\contentsline {subsection}{\numberline {4.6}Forces on a 2D Body}{5}{}%
-\contentsline {subsection}{\numberline {4.7}Residue Theorem}{6}{}%
+\contentsline {section}{\numberline {3}Vorticity Dynamics}{2}{}%
+\contentsline {subsection}{\numberline {3.1}Terms}{2}{}%
+\contentsline {subsection}{\numberline {3.2}Vorticity Transport Equation}{2}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Legend}{2}{}%
+\contentsline {subsection}{\numberline {3.3}Helmholtz's Vortex Theorems for Inviscid Flows}{3}{}%
+\contentsline {subsubsection}{\numberline {3.3.1}Assumptions}{3}{}%
+\contentsline {subsubsection}{\numberline {3.3.2}Statement}{3}{}%
+\contentsline {subsection}{\numberline {3.4}Kelvin's circulation theorem}{3}{}%
+\contentsline {subsubsection}{\numberline {3.4.1}Assumptions}{3}{}%
+\contentsline {subsubsection}{\numberline {3.4.2}Statement}{3}{}%
+\contentsline {subsection}{\numberline {3.5}Streamlines and Vortex Lines}{4}{}%
+\contentsline {section}{\numberline {4}Potential Flow}{4}{}%
+\contentsline {subsection}{\numberline {4.1}Stream Function $\Leftrightarrow $ Potential Function $\Leftrightarrow $ Velocities}{5}{}%
+\contentsline {subsection}{\numberline {4.2}Cartesian $\Leftrightarrow $ Polar Velocities}{5}{}%
+\contentsline {subsection}{\numberline {4.3}Complex Potentials}{6}{}%
+\contentsline {subsubsection}{\numberline {4.3.1}Legend}{6}{}%
+\contentsline {subsection}{\numberline {4.4}Infinite Series Expansions}{7}{}%
+\contentsline {subsection}{\numberline {4.5}Bernoulli's Equation (Irrotational)}{7}{}%
+\contentsline {subsection}{\numberline {4.6}Forces on a 2D Body}{7}{}%
+\contentsline {subsection}{\numberline {4.7}Residue Theorem}{8}{}%

@@ -58,6 +58,9 @@
 
 \section{Mathematics}
 
+\subsection{First-Order Linear ODE}
+Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by multiplying both sides by an integrating factor $e^{\int_{}^{}\alpha(x)dx}$. Then the left-hand side becomes $\frac{d(e^{\int_{}^{}\alpha(x)dx}.y)}{dx}$ and the right hand side becomes $e^{\int_{}^{}\alpha(x)dx} \beta(x)$. The left and right hand sides can then be integrated directly.
+
 \section{Continuum Flow}
 \subsection{Mass Conservation}
 \begin{align*}
@@ -81,11 +84,69 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \text{Circulation } \Gamma &= \oint_{C}^{} \vec{v} . \vec{dl} = \int_{S}^{} \vec{\omega}.\hat{n}\ dA \text{ (Flux of Vorticity across surface } S \text{)}\\ 
 \text{Average angular velocity } \bar{\Omega} &= \frac{\bar{u}_{\theta}}{a} = \frac{\oint_{C}^{} \vec{v}.\vec{dl}}{2 \pi a^2} =  \frac{\Gamma}{2 \pi a^2} \text{ (On a circle of radius } a\text{)} = \frac{{\omega}_j n_j}{2}\\
 \text{For Irrotational Flow, } \Gamma &= 0,\ \vec{\omega} = 0 \\
+\text{A vector field } \vec{\alpha} \text{ is considered solenoidal if } \vec{\nabla} . \vec{\alpha} &= 0 \\
+\vec{\nabla}.\vec{\omega} &= \vec{\nabla}.(\vec{\nabla} \times \vec{v}) = 0 \\
+\end{align*}
+
+\subsection{Terms}
+\begin{itemize}
+\item \textbf{Barotropic}: Density is a function of pressure only. $\dfrac{1}{\rho^2} \vec{\nabla} \rho \times \vec{\nabla} p = 0$ 
+\item \textbf{Inviscid}: Viscosity can be neglected. $\nu \nabla^2 \vec{\omega} = 0$ 
+\item \textbf{Baroclinic}: Measure of how misaligned the gradient of pressure is from the gradient of density in a fluid $\vec{\nabla} \rho \times \vec{\nabla} p$
+\item \textbf{Isobars}: Constant pressure lines
+\item \textbf{Isopycals}: Constant density lineses
+\end{itemize}
+
+\subsection{Vorticity Transport Equation}
+\begin{align*}
+\frac{D\vec{\omega}}{Dt} &= (\vec{\omega}.\vec{\nabla}) \vec{v} + \frac{1}{\rho^2} \vec{\nabla} \rho \times \vec{\nabla} p + \nu \nabla^2 \vec{\omega} \\
+\frac{\partial \vec{\omega}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{\omega} &= (\vec{\omega}.\vec{\nabla}) \vec{v} + \frac{1}{\rho^2} \vec{\nabla} \rho \times \vec{\nabla} p + \nu \nabla^2 \vec{\omega}
+\end{align*}
+
+\subsubsection{Legend}
+\begin{itemize}
+\item $\dfrac{D\vec{\omega}}{Dt}$: Total rate of change of vorticity of a fluid particle
+\item $(\vec{\omega}.\vec{\nabla}) \vec{v}$: Vorticity production due to stretching/tilting of vortex lines
+\item $\dfrac{1}{\rho^2} \vec{\nabla} \rho \times \vec{\nabla} p$: Vorticity production due to baroclinic effects
+\item $\nu \nabla^2 \vec{\omega}$: Viscous diffusion of vorticity which dissipates or redistributes vorticity
+\end{itemize}
+
+\subsection{Helmholtz's Vortex Theorems for Inviscid Flows}
+\subsubsection{Assumptions}
+\begin{itemize}
+\item Inviscid
+\item Barotropic
+\item Conservative Body Forces $\vec{F} = -\vec{\nabla{\psi}}$
+\end{itemize}
+
+\subsubsection{Statement}
+\begin{itemize}
+\item Fluid particles/element orignially free of vorticity remain free of vorticity (non-rotating)
+\item Vortex lines (tubes) move with the fluid for inviscid flows. Vortex line is always comprised of the same fluid particles (Vorticity is frozen to the flow for inviscid flow)
+\item The strength of the vortex tube (circulation) does not vary with time during the fluid motion. Vortex tubes must be closed, go to infinity, or end on solid boundaries.
+\end{itemize}
+
+\subsection{Kelvin's circulation theorem}
+\subsubsection{Assumptions}
+\begin{itemize}
+\item Inviscid
+\item Barotropic
+\item Incompressible
+\item Conservative Body Forces $\vec{F} = -\vec{\nabla{\psi}}$
+\end{itemize}
+
+\subsubsection{Statement}
+The circulation (strength of the vortex) around a closed curve moving with the fluid will remain constant.
+
+\begin{align*}
+\frac{\partial \Gamma_C}{\partial t} + v_j \frac{\partial \Gamma_C}{\partial x_j} &= \oint_{C}^{} \nu \nabla^2\vec{v}.\vec{dx} \\
+\text{For inviscid flow, } \frac{\partial \Gamma_C}{\partial t} + v_j \frac{\partial \Gamma_C}{\partial x_j} &= 0
 \end{align*}
 
 \subsection{Streamlines and Vortex Lines}
 \begin{align*}
 \text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{u_x} &= \frac{dy}{u_y} = \frac{dz}{u_z} \\
+\text{Equations for Streamlines (Cylindrical Polar Coordinates) } \frac{dR}{u_R} &= \frac{R d \phi}{u_\phi} = \frac{dz}{u_z} \\
 \text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
 \end{align*}
 
