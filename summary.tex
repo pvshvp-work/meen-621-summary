@@ -88,6 +88,13 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \vec{\nabla}.\vec{\omega} &= \vec{\nabla}.(\vec{\nabla} \times \vec{v}) = 0 \\
 \end{align*}
 
+\subsection{Streamlines and Vortex Lines}
+\begin{align*}
+\text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{u_x} &= \frac{dy}{u_y} = \frac{dz}{u_z} \\
+\text{Equations for Streamlines (Cylindrical Polar Coordinates) } \frac{dR}{u_R} &= \frac{R d \phi}{u_\phi} = \frac{dz}{u_z} \\
+\text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
+\end{align*}
+
 \subsection{Terms}
 \begin{itemize}
 \item \textbf{Barotropic}: Density is a function of pressure only. $\dfrac{1}{\rho^2} \vec{\nabla} \rho \times \vec{\nabla} p = 0$ 
@@ -143,11 +150,22 @@ The circulation (strength of the vortex) around a closed curve moving with the f
 \text{For inviscid flow, } \frac{\partial \Gamma_C}{\partial t} + v_j \frac{\partial \Gamma_C}{\partial x_j} &= 0
 \end{align*}
 
-\subsection{Streamlines and Vortex Lines}
+\subsection{Bernoulli's Equation}
+\subsubsection{Assumptions}
+\begin{itemize}
+\item Inviscid $\nabla^2 v = 0$ $\rightarrow$ Euler
+\item Only gravitational body forces (Conservative) $\rightarrow$ $f_i = -\dfrac{d \psi}{dx_i}$ where $\psi = g z$
+\item Barotropic $\rightarrow$ $\rho = \rho(p)$
+\item Steady flow $\rightarrow$ $\dfrac{\partial}{\partial t} = 0$ 
+\end{itemize}
+Note: No restriction on the compressiblity effects
+
+\subsubsection{Statement}
 \begin{align*}
-\text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{u_x} &= \frac{dy}{u_y} = \frac{dz}{u_z} \\
-\text{Equations for Streamlines (Cylindrical Polar Coordinates) } \frac{dR}{u_R} &= \frac{R d \phi}{u_\phi} = \frac{dz}{u_z} \\
-\text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
+\nabla \Biggl[\frac{\vec{v}.\vec{v}}{2} + g z + \int \frac{dp}{\rho} \Biggr] &= -\vec{\omega} \times \vec{v} \\
+\text{Along streamline or vortex line } \frac{\vec{v}.\vec{v}}{2} + g z + \int \frac{dp}{\rho} &= \text{constant}\\
+\text{Unsteady flow } \frac{\partial \phi}{\partial t} + \frac{\vec{v}.\vec{v}}{2} + g z + \int \frac{dp}{\rho} &= F(t)\\
+\text{Steady Potential flow } \frac{\vec{v}.\vec{v}}{2} + g z + \int \frac{dp}{\rho} &= \text{constant throughout the flow}\\
 \end{align*}
 
 \section{Potential Flow}
