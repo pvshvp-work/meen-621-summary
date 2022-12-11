@@ -1,4 +1,4 @@
-\documentclass[11pt, letterpaper, notitlepage, landscape]{article} 
+\documentclass[11pt, letterpaper, notitlepage]{article} 
 \usepackage[
     top=1in,
     left=0.75in,
@@ -16,6 +16,10 @@
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{multirow}
+% \usepackage{float}
+\usepackage{lscape} % For certain tables to be in landscape mode
+% \usepackage{etoolbox}
+\usepackage{enumitem}
 
 \DeclareMathVersion{sans}
 \SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
@@ -33,6 +37,16 @@
 \titleformat{\subsection}[block]{\bfseries \sffamily \normalsize}{\thesubsection.}{5pt}{}
 \titleformat{\subsubsection}[block]{\bfseries \sffamily \small}{}{0pt}{}
 
+\makeatletter
+% \patchcmd{\LS@rot}{90}{-90}{}{}
+% \patchcmd{\endlandscape}{90}{-90}{}{}
+\newenvironment{mywideralign*}{\ifvmode\else\hfil\null\linebreak\fi
+  \hspace*{-\leftmargin}\minipage\textwidth
+  \setlength{\abovedisplayskip}{0pt}%
+  \setlength{\abovedisplayshortskip}{\abovedisplayskip}%
+  \start@align\@ne\st@rredtrue\m@ne}%
+{\endalign\endminipage\linebreak}
+\makeatother
 \begin{document}
 
 \sffamily
@@ -42,7 +56,7 @@
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \tableofcontents
-\pagestyle{empty}
+\thispagestyle{empty}
 
 \newpage
 \setcounter{page}{1}
@@ -68,7 +82,17 @@ Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by 
 \frac{\partial \rho}{\partial t} + \frac{\partial (\rho v_j)}{\partial x_j} &= 0 \\
 \end{align*}
 
-\subsection{Momentum Conservation}
+\subsubsection{Cartesian Coordinates}
+\begin{align*}
+\frac{\partial \rho}{\partial t} + \frac{\partial (\rho v_1)}{\partial x_1} + \frac{\partial (\rho v_2)}{\partial x_2} + \frac{\partial (\rho v_3)}{\partial x_3} &= 0 \\
+\end{align*}
+
+\subsubsection{Cylindrical Polar Coordinates}
+\begin{align*}
+\frac{\partial \rho}{\partial t} + \frac{1}{r} \frac{\partial}{\partial r} (r \rho v_r) + \frac{1}{r} \frac{\partial \rho v_{\theta}}{\partial \theta} + \frac{\partial \rho v_z}{\partial z} &= 0 \\
+\end{align*}
+
+\subsection{Momentum Conservation (Navier-Stokes Equations)}
 $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{v}\biggr] = \rho \vec{f} -\vec{\nabla} p + \mu \nabla^2 \vec{v}$
 
 \subsubsection{Cartesian Coordinates}
@@ -77,6 +101,13 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \rho \biggl[ \frac{\partial v_2}{\partial t} + v_1 \frac{\partial v_2}{\partial x_1} + v_2 \frac{\partial v_2}{\partial x_2} + v_3 \frac{\partial v_2}{\partial x_3} \biggr] &= \rho f_2 - \frac{\partial p}{\partial x_2} + \mu \biggl[ \frac{\partial^2 v_2}{\partial x^2_1} + \frac{\partial^2 v_2}{\partial x^2_2} + \frac{\partial^2 v_2}{\partial x^2_3} \biggr] \\
 \rho \biggl[ \frac{\partial v_3}{\partial t} + v_1 \frac{\partial v_3}{\partial x_1} + v_2 \frac{\partial v_3}{\partial x_2} + v_3 \frac{\partial v_3}{\partial x_3} \biggr] &= \rho f_3 - \frac{\partial p}{\partial x_3} + \mu \biggl[ \frac{\partial^2 v_3}{\partial x^2_1} + \frac{\partial^2 v_3}{\partial x^2_2} + \frac{\partial^2 v_3}{\partial x^2_3} \biggr] \\
 \end{align*}
+
+\subsubsection{Cylindrical Polar Coordinates}
+\begin{mywideralign*}
+\rho \biggl[ \frac{\partial v_r}{\partial t} + v_r \frac{\partial v_r}{\partial r} + \frac{v_{\theta}}{r} \frac{\partial v_r}{\partial \theta} + v_z \frac{\partial v_r}{\partial z} - \frac{{v^2}_{\theta}}{r} \biggr] &= \rho f_r - \frac{\partial p}{\partial r} + \mu \biggl[ \frac{\partial}{\partial r} \biggl( \frac{1}{r} \frac{\partial}{\partial r} ( r v_r ) \biggr) + \frac{1}{r^2} \frac{{\partial}^2 v_r}{\partial {\theta}^2} + \frac{{\partial}^2 v_r}{\partial z^2} -\frac{2}{r^2} \frac{\partial v_{\theta}}{\partial \theta}  \biggr] \\
+\rho \biggl[ \frac{\partial v_{\theta}}{\partial t} + v_r \frac{\partial v_{\theta}}{\partial r} + \frac{v_{\theta}}{r} \frac{\partial v_{\theta}}{\partial \theta} + v_z \frac{\partial v_{\theta}}{\partial z} + \frac{v_r v_{\theta}}{r} \biggr] &= \rho f_{\theta} - \frac{1}{r} \frac{\partial p}{\partial \theta} + \mu \biggl[ \frac{\partial}{\partial r} \biggl( \frac{1}{r} \frac{\partial}{\partial r} ( r v_{\theta} ) \biggr) + \frac{1}{r^2} \frac{{\partial}^2 v_{\theta}}{\partial {\theta}^2} + \frac{{\partial}^2 v_{\theta}}{\partial z^2} +\frac{2}{r^2} \frac{\partial v_r}{\partial \theta}  \biggr] \\
+\rho \biggl[ \frac{\partial v_z}{\partial t} + v_r \frac{\partial v_z}{\partial r} + \frac{v_{\theta}}{r} \frac{\partial v_z}{\partial \theta} + v_z \frac{\partial v_z}{\partial z} \biggr] &= \rho f_z - \frac{\partial p}{\partial z} + \mu \biggl[ \frac{1}{r} \frac{\partial}{\partial r} \biggl( r \frac{\partial v_z}{\partial r} \biggr) + \frac{1}{r^2} \frac{{\partial}^2 v_z}{\partial {\theta}^2} + \frac{{\partial}^2 v_z}{\partial z^2} \biggr]
+\end{mywideralign*}
   
 
 \section{Vorticity Dynamics}
@@ -203,6 +234,8 @@ v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 
 \subsection{Complex Potentials}
 
+\begin{landscape}
+
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline & F(z) & $\phi$ & $\psi$ & w(z) & $u$ and $v_r$ & $v$ and $v_{\theta}$ \\
 
@@ -304,8 +337,11 @@ v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
 
 \hline
 \end{tabular}
+ 
+\vspace{-4mm}
 
 \subsubsection{Legend}
+\setlist{topsep=0pt, leftmargin=*}
 \begin{itemize}
   \item Uniform
   \begin{itemize}
@@ -328,6 +364,8 @@ v_{\theta} &= -u \sin{\theta} + v \cos{\theta} \\
     \item $\mu$: $Q a$
   \end{itemize}        
 \end{itemize}
+
+\end{landscape}
 
 \subsection{Infinite Series Expansions}
 \begin{itemize}
