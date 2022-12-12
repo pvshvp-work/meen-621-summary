@@ -22,6 +22,7 @@
 \usepackage{enumitem}
 \usepackage{multicol}
 \usepackage{textcomp}
+\usepackage{romannum}
 
 \DeclareMathVersion{sans}
 \SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
@@ -748,12 +749,49 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \rho \biggl[ \frac{\partial v_{\theta}}{\partial t} + v_r \frac{\partial v_{\theta}}{\partial r} + \frac{v_{\theta}}{r} \frac{\partial v_{\theta}}{\partial \theta} + v_z \frac{\partial v_{\theta}}{\partial z} + \frac{v_r v_{\theta}}{r} \biggr] &= \rho f_{\theta} - \frac{1}{r} \frac{\partial p}{\partial \theta} + \mu \biggl[ \frac{\partial}{\partial r} \biggl( \frac{1}{r} \frac{\partial}{\partial r} ( r v_{\theta} ) \biggr) + \frac{1}{r^2} \frac{{\partial}^2 v_{\theta}}{\partial {\theta}^2} + \frac{{\partial}^2 v_{\theta}}{\partial z^2} +\frac{2}{r^2} \frac{\partial v_r}{\partial \theta}  \biggr] \\
 \rho \biggl[ \frac{\partial v_z}{\partial t} + v_r \frac{\partial v_z}{\partial r} + \frac{v_{\theta}}{r} \frac{\partial v_z}{\partial \theta} + v_z \frac{\partial v_z}{\partial z} \biggr] &= \rho f_z - \frac{\partial p}{\partial z} + \mu \biggl[ \frac{1}{r} \frac{\partial}{\partial r} \biggl( r \frac{\partial v_z}{\partial r} \biggr) + \frac{1}{r^2} \frac{{\partial}^2 v_z}{\partial {\theta}^2} + \frac{{\partial}^2 v_z}{\partial z^2} \biggr]
 \end{mywideralign*}
-  
+
+\subsection{Flow Conditions} 
+
+\subsubsection{Steady State}
+\begin{align*}
+& \frac{\partial \rho}{\partial t} = 0, \\
+& \frac{\partial v_1}{\partial t} = 0,\ \frac{\partial v_2}{\partial t} = 0,\ \frac{\partial v_3}{\partial t} = 0 
+\end{align*}
+
+\subsubsection{\underline{Simple} Couette Flow}
+\begin{align*}
+\frac{\partial p}{\partial x_1} = 0,\ \frac{\partial p}{\partial x_2} = 0,\ \frac{\partial p}{\partial x_3} = 0 
+\end{align*}
+
+\subsection{Boundary Conditions} 
+\textit{Let $t$ indicate a direction tangent to the boundary} \\
+\textit{Let $n$ indicate a direction normal to the boundary}
+
+\subsubsection{Fluid-Solid Interface}
+\begin{align*}
+\text{No Slip: } v_t\rvert_{boundary} = 0 \\
+\text{No Penetration: } v_n\rvert_{boundary} = 0 \\
+\end{align*}
+
+\subsubsection{Fluid-Fluid Interface}
+\begin{align*}
+\text{Continuity:}& \ \rho_\Romannum{1} v_{\Romannum{1} n} = \rho_\Romannum{2} v_{\Romannum{2} n} \\
+\text{Jump/Discontinuity:}& \ \rho_\Romannum{1} \neq \rho_\Romannum{2} \\
+& v_{\Romannum{1} n} \neq v_{\Romannum{2} n} \\
+\text{Shear Stress Continuity:}& \ T_{ij} n_j t_i \bigr\rvert_\Romannum{1} = T_{ij} n_j t_i \bigr\rvert_\Romannum{2} \\
+& \implies \mu_\Romannum{1} \frac{\partial v_t}{\partial n} \biggr\rvert_\Romannum{1} = \mu_\Romannum{2} \frac{\partial v_t}{\partial n} \biggr\rvert_\Romannum{2}
+\end{align*}
+
+\subsubsection{Fluid-Gas Interface}
+\begin{align*}
+\text{Free Surface:}& \ \frac{\partial p}{\partial n}=0 \\
+\text{Traction-free:}& \ \frac{\partial v_t}{\partial n} = 0 \\
+\end{align*}
 
 \section{Vorticity Dynamics}
 \begin{align*}
-\text{Circulation } \Gamma &= \oint_{C}^{} \vec{v} . \vec{dl} = \int_{S}^{} \vec{\omega}.\hat{n}\ dA \text{ (Flux of Vorticity across surface } S \text{)}\\ 
-\text{Average angular velocity } \bar{\Omega} &= \frac{\bar{u}_{\theta}}{a} = \frac{\oint_{C}^{} \vec{v}.\vec{dl}}{2 \pi a^2} =  \frac{\Gamma}{2 \pi a^2} \text{ (On a circle of radius } a\text{)} = \frac{{\omega}_j n_j}{2}\\
+\text{Circulation } \Gamma &= \oint_{C}^{} \vec{v} . \vec{dl} = \int_{S}^{} \vec{\omega}.\hat{n}\ dA \\ 
+\text{Average angular velocity } \bar{\Omega} &= \frac{\bar{u}_{\theta}}{a} \\ &= \frac{\oint_{C}^{} \vec{v}.\vec{dl}}{2 \pi a^2} =  \frac{\Gamma}{2 \pi a^2} \text{ (On a circle of radius } a\text{)} \\ &= \frac{{\omega}_j n_j}{2}\\
 \text{For Irrotational Flow, } \Gamma &= 0,\ \vec{\omega} = 0 \\
 \text{A vector field } \vec{\alpha} \text{ is considered solenoidal if } \vec{\nabla} . \vec{\alpha} &= 0 \\
 \vec{\nabla}.\vec{\omega} &= \vec{\nabla}.(\vec{\nabla} \times \vec{v}) = 0 \\
@@ -1044,8 +1082,16 @@ R_k = \sum B \\
 
 \section{Boundary Layer Theory}
 \begin{align*}
-\text{Through dimensional analysis} \\
+\text{Through dimensional analysis,} \\
 \frac{\delta}{L} \sim \sqrt{\frac{\nu}{v L}} \sim \frac{1}{\sqrt{Re_L}} \\
+\end{align*}
+
+\subsection{Prandtl Boundary Layer Equations for a Flat Plate}
+\begin{align*}
+& \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0 \\
+& \rho \Biggl(u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} \Biggr) = -\frac{\partial p}{\partial x} + \mu \frac{{\partial}^2 u}{\partial y^2} \\
+&\implies u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = -\frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{{\partial}^2 u}{\partial y^2} \\
+&\frac{\partial p}{\partial y} = 0
 \end{align*}
 
 \end{document}
