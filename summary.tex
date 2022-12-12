@@ -758,6 +758,33 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 & \frac{\partial v_1}{\partial t} = 0,\ \frac{\partial v_2}{\partial t} = 0,\ \frac{\partial v_3}{\partial t} = 0 
 \end{align*}
 
+\subsubsection{Fully Developed}
+\begin{align*}
+& \frac{\partial v_1}{\partial x_1} = 0,\ \frac{\partial v_2}{\partial x_2} = 0,\ \frac{\partial v_3}{\partial x_3} = 0
+\end{align*}
+
+\subsubsection{Unidirectional}
+\begin{align*}
+& v_{n1} = 0,\ v_{n2} = 0
+\end{align*}
+
+\subsubsection{Two-dimensional}
+\begin{align*}
+& v_{n} = 0,\\
+&\frac{\partial v_{t1}}{\partial n} = 0,\ \frac{\partial v_{t2}}{\partial n} = 0
+\end{align*}
+
+\subsubsection{Free Surface}
+\begin{align*}
+& \frac{\partial p}{\partial t} =0
+\end{align*}
+
+\subsubsection{Axisymmetric}
+\begin{align*}
+& v_\theta = 0, \\
+& \frac{\partial v_r}{\partial \theta} = 0,\ \frac{\partial v_\theta}{\partial \theta} = 0, \frac{\partial v_z}{\partial \theta} = 0,\\
+\end{align*}
+
 \subsubsection{\underline{Simple} Couette Flow}
 \begin{align*}
 \frac{\partial p}{\partial x_1} = 0,\ \frac{\partial p}{\partial x_2} = 0,\ \frac{\partial p}{\partial x_3} = 0 
@@ -784,8 +811,8 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 
 \subsubsection{Fluid-Gas Interface}
 \begin{align*}
-\text{Free Surface:}& \ \frac{\partial p}{\partial n}=0 \\
-\text{Traction-free:}& \ \frac{\partial v_t}{\partial n} = 0 \\
+\text{Free Surface:}& \ p \rvert_{boundary} = p_{\infty} \\
+\text{Traction-Free:}& \ \frac{\partial v_t}{\partial n} \biggr\rvert_{boundary} = 0 \\
 \end{align*}
 
 \section{Vorticity Dynamics}
