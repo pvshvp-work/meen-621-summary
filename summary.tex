@@ -1141,4 +1141,35 @@ R_k = \sum B \\
 &= \int_0^\infty \rho (u_\infty-u) u \ dy = \rho u^2_\infty \theta \\
 & \implies \boxed{\theta = \int_0^\infty \frac{u}{u_\infty} \biggl(1-\frac{u}{u_\infty} \biggr) dy}
 \end{align*}
+
+\subsubsection{Von Karman Momentum Integral Equation}
+\begin{align*}
+\frac{d}{d x} (\tilde{v}^2 \theta) &+ \tilde{v} \frac{d \tilde{v}}{dx} \delta^* = \frac{\tau_w}{\rho} \\
+\text{where, }& \\
+& \delta^* \text{ is the displacement thickness} \\
+& \theta \text{ is the momentum thickness} \\
+& \tilde{v}(x) = u \rvert_{boundary\ layer\ edge} \\
+& \tau_w = \mu \frac{\partial u}{\partial y} \biggr\rvert_{y=0}
+\end{align*}
+
+\underline{Special Case}: If $\tilde{v} = u_{\infty} = constant$,
+\begin{align*}
+\text{Shear Stress on the plate } \tau_w &= \rho u_{\infty}^2 \frac{d \theta}{d x} \\
+\text{Force on the plate } F = \int \tau_w dx &= \rho u_{\infty}^2 \theta \\
+\text{Skin Friction Coefficient } C_f = \dfrac{\tau_w}{\biggl(\dfrac{\rho u_{\infty}^2}{2}\biggr)} &= 2 \frac{d \theta}{d x}
+\end{align*}
+
+\subsubsection{Momentum Equation at the Cylindrical Surface}
+\begin{align*}
+\mu \frac{\partial^2 u}{\partial y^2} = \frac{\partial p}{\partial x} = - \rho \tilde{v} \frac{\partial \tilde{v}}{\partial x}
+\end{align*}
+
+\subsubsection{Boundary Layer Separation Point}
+\begin{align*}
+\frac{\partial u}{\partial y} \biggr\rvert_{y=0} = 0
+\end{align*}
+
+\subsubsection{Shape Factor}
+Higher the shape factor $\dfrac{\delta^*}{\theta}$, the closer a flow is towards separation
+
 \end{document}
