@@ -23,6 +23,15 @@
 \usepackage{multicol}
 \usepackage{textcomp}
 \usepackage{romannum}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=magenta,      
+  urlcolor=cyan,
+}
 
 \AtBeginDocument{\pagenumbering{arabic}}
 
@@ -61,7 +70,7 @@
 \maketitle
 \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\tableofcontents
+{ \hypersetup{linkcolor=black} \tableofcontents }
 \thispagestyle{empty}
 
 \newpage
@@ -713,9 +722,16 @@ b \cosh bx \sinh ax
 - a \cosh ax \sinh bx \right]
 \end{align}
 
-
 \end{footnotesize}
 \end{multicols}
+
+\subsection{$\nabla$ in Cartesian and Cylindrical Polar Coordinates}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{DelInOtherCoordinateSystems.png}
+  \caption{Del in Cartesian and Cylindrical Polar Coordinates. Source: \url{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}}
+  \label{fig:galaxy}
+\end{figure}
 
 \subsection{First-Order Linear ODE}
 Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by multiplying both sides by an integrating factor $e^{\int_{}^{}\alpha(x)dx}$. Then the left-hand side becomes $\frac{d(e^{\int_{}^{}\alpha(x)dx}.y)}{dx}$ and the right hand side becomes $e^{\int_{}^{}\alpha(x)dx} \beta(x)$. The left and right hand sides can then be integrated directly.
