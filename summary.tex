@@ -76,6 +76,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\arraystretch}{1.75}
 
+\newpage
 \section{Mathematics}
 
 \subsection{Integral Tables}
@@ -719,6 +720,7 @@ b \cosh bx \sinh ax
 \subsection{First-Order Linear ODE}
 Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by multiplying both sides by an integrating factor $e^{\int_{}^{}\alpha(x)dx}$. Then the left-hand side becomes $\frac{d(e^{\int_{}^{}\alpha(x)dx}.y)}{dx}$ and the right hand side becomes $e^{\int_{}^{}\alpha(x)dx} \beta(x)$. The left and right hand sides can then be integrated directly.
 
+\newpage
 \section{Kinematics}
 % \subsection{Streamlines, Streaklines, Pathlines}
 % \begin{align*}
@@ -727,6 +729,7 @@ Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by 
 % \text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
 % \end{align*}
 
+\newpage
 \section{Continuum Flow}
 \subsection{Mass Conservation}
 \begin{align*}
@@ -782,12 +785,12 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \subsubsection{Two-dimensional}
 \begin{align*}
 & v_{n} = 0,\\
-&\frac{\partial v_{t1}}{\partial n} = 0,\ \frac{\partial v_{t2}}{\partial n} = 0
+&\frac{\partial v_{t1}}{\partial s_n} = 0,\ \frac{\partial v_{t2}}{\partial s_n} = 0
 \end{align*}
 
 \subsubsection{Free Surface}
 \begin{align*}
-& \frac{\partial p}{\partial t} =0
+& \frac{\partial p}{\partial s_t} =0
 \end{align*}
 
 \subsubsection{Axisymmetric}
@@ -817,15 +820,16 @@ $\rho \biggl[\dfrac{\partial{\vec{v}}}{\partial t} + (\vec{v}.\vec{\nabla})\vec{
 \text{Jump/Discontinuity:}& \ \rho_\Romannum{1} \neq \rho_\Romannum{2} \\
 & v_{\Romannum{1} n} \neq v_{\Romannum{2} n} \\
 \text{Shear Stress Continuity:}& \ T_{ij} n_j t_i \bigr\rvert_\Romannum{1} = T_{ij} n_j t_i \bigr\rvert_\Romannum{2} \\
-& \implies \mu_\Romannum{1} \frac{\partial v_t}{\partial n} \biggr\rvert_\Romannum{1} = \mu_\Romannum{2} \frac{\partial v_t}{\partial n} \biggr\rvert_\Romannum{2}
+& \implies \mu_\Romannum{1} \frac{\partial v_t}{\partial s_n} \biggr\rvert_\Romannum{1} = \mu_\Romannum{2} \frac{\partial v_t}{\partial s_n} \biggr\rvert_\Romannum{2}
 \end{align*}
 
 \subsubsection{Fluid-Gas Interface}
 \begin{align*}
 \text{Free Surface:}& \ p \rvert_{boundary} = p_{\infty} \\
-\text{Traction-Free:}& \ \frac{\partial v_t}{\partial n} \biggr\rvert_{boundary} = 0 \\
+\text{Traction-Free:}& \ \frac{\partial v_t}{\partial s_n} \biggr\rvert_{boundary} = 0 \\
 \end{align*}
 
+\newpage
 \section{Vorticity Dynamics}
 \begin{align*}
 \text{Circulation } \Gamma &= \oint_{C}^{} \vec{v} . \vec{dl} = \int_{S}^{} \vec{\omega}.\hat{n}\ dA \\ 
@@ -915,6 +919,7 @@ Note: No restriction on the compressiblity effects
 \text{Steady Potential flow } \frac{\vec{v}.\vec{v}}{2} + g z + \int \frac{dp}{\rho} &= \text{constant throughout the flow}\\
 \end{align*}
 
+\newpage
 \section{Potential Flow}
 \begin{align*}
 i &= \sqrt{-1} \\
@@ -1118,6 +1123,7 @@ R_k = \sum B \\
 \oint_{C}^{} F(z) dz &= 2 \pi i \sum_{k}^{} R_k \\
 \end{align*}
 
+\newpage
 \section{Boundary Layer Theory}
 \begin{align*}
 \text{Through dimensional analysis,} \\
@@ -1131,6 +1137,22 @@ R_k = \sum B \\
 &\implies u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} = -\frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \frac{{\partial}^2 u}{\partial y^2} \\
 &\frac{\partial p}{\partial y} = 0
 \end{align*}
+
+\subsection{Blasius Solution for Boundary Layer for a Flat Plate}
+This is a first order approximation for the steady, laminar, 2D boundary layer for a semi-infinite flat plate parallel to a constant, unidirectional flow where the pressure gradient $\dfrac{\partial p}{\partial t} = 0$.
+\begin{align*}
+\delta_{99} \approx \delta_v &\approx 5.29 \sqrt{\frac{\nu s_t}{u_\infty}} \\
+\delta^* &= 1.72 \sqrt{\frac{\nu s_t}{u_\infty}} \\
+\theta &= 0.665 \sqrt{\frac{\nu s_t}{u_\infty}} \\
+\tau_w &= 0.332 \sqrt{\frac{\rho \mu u^3_\infty}{s_t}} \\
+F \text{(one side of the plate) } &= 1.328 \sqrt{\rho \mu l u^3_\infty}
+\end{align*}
+
+\subsection{Common Viscosities}
+\begin{itemize}
+  \item Air: $\nu_{air} = 1.48 \times 10^{-5} m^2/s$ ($14.8\ centistokes$) \\
+  \item Water: $\nu_{water} = 1 \times 10^{-6} m^2/s$ ($1\ centistoke$)
+\end{itemize}
 
 \subsection{Inviscid Equivalence}
 \subsubsection{Displacement Thickness}
