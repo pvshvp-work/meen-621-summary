@@ -722,12 +722,26 @@ Equations of the form $\frac{dy}{dx} + \alpha(x) y = \beta(x)$ can be solved by 
 
 \newpage
 \section{Kinematics}
-% \subsection{Streamlines, Streaklines, Pathlines}
-% \begin{align*}
-% \text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{u_x} &= \frac{dy}{u_y} = \frac{dz}{u_z} \\
-% \text{Equations for Streamlines (Cylindrical Polar Coordinates) } \frac{dR}{u_R} &= \frac{R d \phi}{u_\phi} = \frac{dz}{u_z} \\
-% \text{Equations for Vortex Lines (Cartesian Coordinates) } \frac{dx}{\omega_x} &= \frac{dy}{\omega_y} = \frac{dz}{\omega_z} \\
-% \end{align*}
+
+\subsection{Gauss' Divergence Theorem}
+\begin{align*}
+  \int_S \vec{b} . \hat{n} d A =  \int_S \vec{b} . \vec{d A} = \int_V \vec{\nabla} . \vec{b}\ d V
+\end{align*}
+
+\subsection{Stokes' Theorem}
+\begin{align*}
+  \oint_C \vec{b} . \vec{dl} =  \int_S (\vec{\nabla} \times \vec{b}) . \hat{n} d A = \int_S (\vec{\nabla} \times \vec{b}) . \vec{d A}
+\end{align*}
+
+\subsection{Streamlines, Pathlines, and Streaklines}
+\begin{align*}
+\text{Equations for Streamlines (Cartesian Coordinates) } \frac{dx}{v_x} &= \frac{dy}{v_y} = \frac{dz}{v_z} \\
+\text{Equations for Streamlines (Cylindrical Polar Coordinates) } \frac{dr}{v_r} &= \frac{r d \theta}{v_\theta} = \frac{dz}{v_z} \\
+\text{Equations for Pathlines (Cartesian Coordinates) } \frac{d x^M}{d t} &= v_x,\ \frac{d y^M}{d t} = v_y, \frac{d z^M}{d t} = v_z \\
+\text{Equations for Pathlines (Cylindrical Polar Coordinates) } \frac{d r^M}{d t} &= v_r,\ r^M \frac{d \theta^M}{d t} = v_\theta, \frac{d z^M}{d t} = v_z \\
+\text{Equations for Streaklines (Cartesian Coordinates) } \vec{r}^M(x, y, z, t=\tau) &= \vec{r}_\tau \text{ in pathline equations} \\
+\text{Equations for Streaklines (Cylindrical Polar Coordinates) } \vec{r}^M(r, \theta, z, t=\tau) &= \vec{r}_\tau \text{ in pathline equations}
+\end{align*}
 
 \newpage
 \section{Continuum Flow}
